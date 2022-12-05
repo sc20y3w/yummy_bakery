@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{##Inheriting the base template.#}
+
+{% block title %}
+
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+    <div class="login scroll-container_t" style="left: -40px; top: 80px; position: relative;overflow-x: hidden">
+        <div class="character text-light" style="position: relative; top: 20px;">Type</div>
+        <div class="text-light number" style="position: relative; top: -18px; left: 60px;">({{ n }})</div>
+        <div class="login_form" style="left:10px;top:25px;position:relative; z-index:999; ">
+        <ul style="position:relative; z-index:999; top:-10px; left: 50px;">
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group text-light list_btn" style="width: 400px;">Type</li>
+            </ul>
+             {% for i in type %}
+                <ul class="list-group list-group-horizontal" style="color: #171a1d">
+                  <li class="list-group text-light list_btn" style="width: 400px;">{{ i.type_name }}</li>
+                </ul>
+            {% endfor %}
+        </ul>
+        </div>
+    </div>
+{% endblock %}
+

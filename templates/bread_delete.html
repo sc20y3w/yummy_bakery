@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{##Inheriting the base template.#}
+
+{% block title %}
+
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+    <div class="login scroll-bread" style="left: -40px;position: relative; top: 80px; overflow-x: hidden;">
+        <a  href="{{url_for('order.bread_display')}}">
+        <div class="character text-light" style="position: relative; top: 20px;">Bread</div>
+        <div class="text-light number" style="position: relative; top: -18px; left: 60px;">({{ n }})</div>
+        </a>
+        <div class="login_form" style="left:10px;top:5px;position:relative; z-index:999; ">
+        <ul style="position:relative; z-index:999; top:-10px; left: -31px;">
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group text-light list_btn" style="width: 140px; position: relative; top: 20px;">
+                  <a href="{{url_for('order.bread_display')}}" class="text-light">Bread</a>
+              </li>
+              <li class="list-group text-light list_btn" style="width: 140px; position: relative; top: 20px;">P date</li>
+              <li class="list-group text-light list_btn" style="width: 140px; position: relative; top: 20px;">Exp</li>
+              <li class="list-group text-light list_btn" style="width: 83px; position: relative; top: 20px;">Delete</li>
+              <li class="list-group text-light list_btn" style="width: 83px; position: relative; top: 20px;">Edit</li>
+            </ul>
+             {% for i in bread %}
+                <ul class="list-group list-group-horizontal" style="color: #171a1d; position: relative;top: 20px;">
+                  <li class="list-group text-light list_btn" style="width: 140px;">{{ i.bread_name }}</li>
+                  <li class="list-group text-light list_btn" style="width: 140px;">{{ i.m_date }}</li>
+                  <li class="list-group text-light list_btn" style="width: 140px;">{{ i.e_date }}</li>
+                  <a  href="{{url_for('order.bread_delete', bread_name=i.bread_name)}}">
+                     <li class="list-group text-light list_btn" style="width: 80px;" >
+                        <button type="submit" class="btn" name="delete" ><img style="position:relative; top:-9px;width: 25px;height: 25px;" src="../static/delete.png"></button>
+                     </li>
+                  </a>
+                  <a  href="#">
+                     <li class="list-group text-light list_btn" style="width: 80px;" >
+                        <button type="submit" class="btn" name="delete" ><img style="position:relative; top:-9px;width: 20px;height: 20px;" src="../static/edit.png"></button>
+                     </li>
+                  </a>
+                </ul>
+            {% endfor %}
+        </ul>
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{##Inheriting the base template.#}
+
+{% block title %}
+
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+    <div class="login" style="left: -40px;position: relative;">
+        <h2>Client</h2>
+        <div class="login_form" style="left:10px;top:5px;position:relative; z-index:999; ">
+        <ul style="position:relative; z-index:999; top:-10px; left: -31px;">
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group text-light list_btn" style="width: 140px;">Client</li>
+              <li class="list-group text-light list_btn" style="width: 140px;">phone</li>
+              <li class="list-group text-light list_btn" style="width: 140px;">address</li>
+            </ul>
+             {% for i in client %}
+                <ul class="list-group list-group-horizontal" style="color: #171a1d">
+                  <li class="list-group text-light list_btn" style="width: 140px;">{{ i.client_name }}</li>
+                  <li class="list-group text-light list_btn" style="width: 140px;">{{ i.phone }}</li>
+                  <li class="list-group text-light list_btn" style="width: 140px;">{{ i.address }}</li>
+                </ul>
+            {% endfor %}
+        </ul>
+        </div>
+    </div>
+{% endblock %}
+

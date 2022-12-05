@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    {% block head %}{% endblock %}
+    <title>base</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/bootstrap.4.6.min.css') }}" >
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/bootstrap-reboot.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sign_in.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sign_up.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='list.css') }}">
+{#    # The culprit of vitiligo of the code.#}
+    <link rel="stylesheet" href="{{ url_for('static', filename='overflow.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='button.css') }}">
+</head>
+<body background="../static/background.png" style="background-repeat:no-repeat; background-attachment:fixed; background-size:100% 100%;">
+<script src="https://code.jquery.com/jquery.js"></script>
+      <script src="../static/bootstrap/bootstrap.min.js"></script>
+      <script src="../static/bootstrap/bootstrap.bundle.min.js"></script>
+      <script src="../static/bootstrap/popper.min.js"></script>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent" style="position: relative; top: -5px;">
+{#  <a class="navbar-brand text-light" href="{{url_for('home')}}">YUMMY</a>#}
+    <ul class="navbar-nav">
+          {% if baker %}
+               <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light character_login" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                  {{ baker.username }}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                  <li><a class="dropdown-item" href="{{url_for('sign_up')}}">Sign up</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{{url_for('baker.sign_out')}}">Sign out</a></li>
+                </ul>
+              </li>
+          {% else %}
+               <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light character_login" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                  Login
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                  <li><a class="dropdown-item" href="{{url_for('sign_in')}}">Sign in</a></li>
+                  <li><a class="dropdown-item" href="{{url_for('sign_up')}}">Sign up</a></li>
+                </ul>
+              </li>
+          {% endif %}
+      </ul>
+  <button class="navbar-toggler btn-outline-light bg-light" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarScroll">
+    <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+          Bread
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+          <li><a class="dropdown-item" href="{{url_for('order.bread_add')}}">Add</a></li>
+          <li><a class="dropdown-item" href="{{url_for('order.bread_delete_display')}}">Operate</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="{{url_for('order.bread_display')}}">Display</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+          Type
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+          <li><a class="dropdown-item" href="{{url_for('order.type_add')}}">Add</a></li>
+          <li><a class="dropdown-item" href="#">Operate</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="{{url_for('order.type_display')}}">Display</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+          Client
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+          <li><a class="dropdown-item" href="{{url_for('u11', id = 8)}}">Add</a></li>
+          <li><a class="dropdown-item" href="#">Operate</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="{{url_for('order.client_display')}}">Display</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+          Order
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+          <li><a class="dropdown-item" href="{{url_for('order_add')}}">Add</a></li>
+          <li><a class="dropdown-item" href="{{url_for('order.delete_display')}}">Operate</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="{{url_for('order.display')}}">Display</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+          Help
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+          <li><a class="dropdown-item" href="#">Contact us</a></li>
+          <li><a class="dropdown-item" href="#">About us</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Reference</a></li>
+        </ul>
+      </li>
+    </ul>
+    <form class="d-flex" action="{{url_for('order.search_order')}}" method="get">
+        <select name="select_type" class="select text-light"  style="position: relative;left: -5px;">
+        <option value="order">Order</option>
+        <option value="bread">Bread</option>
+        <option value="client">Client</option>
+        </select>
+      <input class="form-control mr-2" type="search" placeholder="Search" name="search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<div class="container">
+    {% block body %}
+    {% endblock %}
+</div>
+</body>
+</html>

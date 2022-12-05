@@ -1,0 +1,75 @@
+.login{
+        text-align: center;
+        margin: 0 auto;
+        width: 600px;
+        height: 520px;
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 25px;
+        box-shadow: 5px 2px 35px -7px #8fd19e;
+    }
+.login h2{
+        margin-top: 80px;
+        color: white;
+        font-weight: 100;
+        padding: 30px;
+    }
+.login_form{
+        padding: 0px;
+    }
+.login_form span{
+        color: white;
+        font-size: 18px;
+        font-weight: 100;
+    }
+.login_form input{
+        background-color: transparent;
+        width: 320px;
+        padding: 2px;
+        text-indent: 2px;
+        color: white;
+        font-size: 20px;
+        height: 45px;
+        margin: 30px 30px 30px 5px;
+        outline: none;
+        border: 0;
+        border-bottom: 1px solid white;
+    }
+input::placeholder{
+        color: #ced4da;
+        font-weight: 100;
+        font-size: 18px;
+        font-style: italic;
+    }
+.login_btn{
+        background-color: rgba(255, 255, 255, 0.582);
+        border: 1px solid #4e555b;
+        padding: 10px;
+        width: 240px;
+        height: 60px;
+        border-radius: 30px;
+        font-size: 25px;
+        color: #171a1d;
+        font-weight: 5000;
+        margin-top: 15px;
+    }
+    .login_btn:hover{
+        box-shadow: 2px 2px 15px 2px #c3e6cb;
+        background-color: transparent;
+        color: white;
+        /* 选择动画 */
+        animation: login_mation 0.5s;
+    }
+
+    /* 定义动画 */
+    @keyframes login_mation
+    {
+        from {
+            background-color: rgba(255, 255, 255, 0.582);
+            box-shadow: 0px 0px 15px 2px #d4edda;
+        }
+        to {
+            background-color: transparent;
+            color: white;
+            box-shadow: 2px 2px 15px 2px #d4edda;
+        }
+    }

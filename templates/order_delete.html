@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{##Inheriting the base template.#}
+
+{% block title %}
+
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+    <div class="login scroll-bread" style="left: -40px;position: relative; top: 80px; overflow-x: hidden;">
+        <a  href="{{url_for('order.display')}}">
+        <div class="character text-light" style="position: relative; top: 20px;">Order</div>
+        <div class="text-light number" style="position: relative; top: -18px; left: 60px;">({{ n }})</div>
+        </a>
+        <div class="login_form" style="left:10px;top:5px;position:relative; z-index:999; ">
+        <ul style="position:relative; z-index:999; top:-10px; left: -31px;">
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group text-light list_btn" style="width: 140px; position: relative; top: 20px;">
+                  <a href="{{url_for('order.bread_display')}}" class="text-light">Bread</a>
+              </li>
+              <li class="list-group text-light list_btn" style="width: 140px; position: relative; top: 20px;">
+                  <a href="{{url_for('order.client_display')}}" class="text-light">Client</a>
+              </li>
+              <li class="list-group text-light list_btn" style="width: 140px; position: relative; top: 20px;">If finish</li>
+              <li class="list-group text-light list_btn" style="width: 140px; position: relative; top: 20px;">Delete</li>
+              <li class="list-group text-light list_btn" style="width: 140px; position: relative; top: 20px;">Edit</li>
+            </ul>
+             {% for i in order %}
+                <ul class="list-group list-group-horizontal" style="color: #171a1d; position: relative;top: 20px;">
+                  <li class="list-group text-light list_btn" style="width: 140px;">{{ i.bread_name }}</li>
+                  <li class="list-group text-light list_btn" style="width: 140px;">{{ i.client_id }}</li>
+                  <li class="list-group text-light list_btn" style="width: 140px;">{{ i.finish }}</li>
+                  <a  href="{{url_for('order.delete', id=i.id)}}">
+                     <li class="list-group text-light list_btn" style="width: 112px;" >
+                        <button type="submit" class="btn"><img style="position:relative; top:-9px;width: 25px;height: 25px;" src="../static/delete.png"></button>
+                     </li>
+                  </a>
+{#                  <a  href="{{url_for('order.order_edit', id=i.id)}}">#}
+                  <a  href="{{url_for('u11',id=i.id)}}">
+                     <li class="list-group text-light list_btn" style="width: 112px;" >
+                        <button type="submit" class="btn"><img style="position:relative; top:-9px;width: 20px;height: 20px;" src="../static/edit.png"></button>
+                     </li>
+                  </a>
+                </ul>
+            {% endfor %}
+        </ul>
+        </div>
+    </div>
+{% endblock %}
+

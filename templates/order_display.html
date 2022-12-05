@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{##Inheriting the base template.#}
+
+{% block title %}
+
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+    <div class="login scroll-container" style="left: -40px;position: relative; top: 80px; overflow-x: hidden;">
+        <div class="character text-light" style="position: relative; top: 20px;">Order</div>
+        <div class="text-light number" style="position: relative; top: -18px; left: 60px;">({{ n }})</div>
+        <div class="banner1" style="top:35px;position: relative; z-index:999; ">
+            <a class="bg-danger" href="{{url_for('order.display')}}" id="sort_order">↓</a>
+            <span>Sort by add event order</span>
+        </div>
+        <div class="banner2" style="top:35px;position: relative; z-index:1; ">
+            <a class="bg-warning"  href="{{url_for('order.display_reverse', order=order)}}">↑</a>
+            <span>Sort by added event in reverse order</span>
+        </div>
+        <div class="login_form" style="left:10px;top:5px;position:relative; z-index:999; ">
+        <ul style="position:relative; z-index:999; top:-10px; left: -31px;">
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group text-light list_btn" style="width: 140px; position: relative; top: -180px;">
+                  <a href="{{url_for('order.bread_display')}}" class="text-light">Bread</a>
+              </li>
+              <li class="list-group text-light list_btn" style="width: 140px; position: relative; top: -180px;">
+                  <a href="{{url_for('order.client_display')}}" class="text-light">Client</a>
+              </li>
+              <li class="list-group text-light list_btn" style="width: 140px; position: relative; top: -180px;">If finish</li>
+              <li class="list-group text-light list_btn" style="width: 210px; position: relative; top: -180px;">Add time</li>
+            </ul>
+             {% for i in order %}
+                <ul class="list-group list-group-horizontal" style="color: #171a1d; position: relative;top: -180px;">
+                  <li class="list-group text-light list_btn" style="width: 140px;">{{ i.bread_name }}</li>
+                  <li class="list-group text-light list_btn" style="width: 140px;">{{ i.client_id }}</li>
+                  <li class="list-group text-light list_btn" style="width: 140px;">{{ i.finish }}</li>
+                  <li class="list-group text-light list_btn" style="width: 210px;">{{ i.join_time }}</li>
+                </ul>
+            {% endfor %}
+        </ul>
+        </div>
+    </div>
+{% endblock %}

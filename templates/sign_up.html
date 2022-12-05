@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{##Inheriting the base template.#}
+
+{% block title %}
+
+{% endblock %}
+
+{% block head %}
+    <script src="{{ url_for('static', filename='jquery/jquery.3.6.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sign_up.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<form method="post" action="{{ url_for('baker.baker_register') }}">
+    <div class="sign_up" style="top:-50px;left: -40px;position: relative;">
+        <h2>Sign up</h2>
+        <div class="sign_form" style="left:10px;top:-15px;position:relative; z-index:999; ">
+            <span>Username:</span>
+            <input type="text" placeholder="Please enter your username" name="username">
+            <br>
+            <span>Email:</span>
+            <input type="email" placeholder="example: xxxxx@qq.com" name="email">
+            <br>
+            <span>Code:</span>
+            <input type="text" placeholder="Please enter the captcha code" name="captcha">
+            <button type="button"  style="position: relative;left: -25px;" class="btn btn-outline-light btn-sm" id="captcha-btn" >send</button>
+            <br>
+            <span>Password:</span>
+            <input type="password" placeholder="Please enter your password" name="password">
+            <br>
+            <span>Confirm password:</span>
+            <input type="password" placeholder="Please reenter your password" name="password_confirm">
+        </div>
+        <div class="btn" style="top:-20px;position: relative; z-index:999; ">
+            <button type="submit" class="login_btn">SIGN UP</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

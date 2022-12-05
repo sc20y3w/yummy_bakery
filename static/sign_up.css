@@ -1,0 +1,77 @@
+.sign_up{
+        text-align: center;
+        margin: 0 auto;
+        width: 600px;
+        height: 600px;
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 25px;
+        box-shadow: 5px 2px 35px -7px #8fd19e;
+    }
+.sign_up h2{
+        margin-top: 80px;
+        color: white;
+        font-weight: 100;
+        padding: 30px;
+    }
+.sign_form{
+        padding: 0px;
+    }
+.sign_form span{
+        color: white;
+        font-size: 18px;
+        font-weight: 100;
+    }
+.sign_form input{
+        background-color: transparent;
+        width: 320px;
+        padding: 2px;
+        text-indent: 2px;
+        color: white;
+        font-size: 20px;
+        height: 45px;
+        margin: 0px 30px 30px 5px;
+        outline: none;
+        border: 0;
+        border-bottom: 1px solid white;
+    }
+.sign_form_b{
+        padding: 0px;
+    }
+.sign_form_b span{
+        color: white;
+        font-size: 18px;
+        font-weight: 100;
+    }
+.sign_form_b input{
+        background-color: transparent;
+        width: 320px;
+        padding: 2px;
+        text-indent: 2px;
+        color: white;
+        font-size: 20px;
+        height: 55px;
+        margin: 0px 30px 30px 5px;
+        outline: none;
+        border: 0;
+        border-bottom: 1px solid white;
+    }
+input::placeholder{
+        color: #ced4da;
+        font-weight: 100;
+        font-size: 18px;
+        font-style: italic;
+    }
+
+    /* 定义动画 */
+@keyframes login_mation
+    {
+        from {
+            background-color: rgba(255, 255, 255, 0.582);
+            box-shadow: 0px 0px 15px 2px #d4edda;
+        }
+        to {
+            background-color: transparent;
+            color: white;
+            box-shadow: 2px 2px 15px 2px #d4edda;
+        }
+    }

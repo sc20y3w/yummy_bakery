@@ -1,0 +1,59 @@
+
+.list_btn{
+        background-color: rgba(0,10,0, 0.4);
+        border: 1px solid rgba(60,80,50,0.5);
+        padding: 10px;
+
+        font: 240px/1.5 Arial;
+        width: 240px;
+        height: 53px;
+        border-radius: 5px;
+        font-size: 20px;
+        /*color: #a71d2a;*/
+        /*font-weight: 50000000;*/
+        margin-top: 0px;
+        box-shadow: 1px 1px 8px 1px #c3e6cb;
+    }
+    .list_btn:hover{
+        box-shadow: 2px 2px 15px 2px white;
+        /*background-color: transparent;*/
+        /*color: white;*/
+        /* 选择动画 */
+        animation: login_mation 0.5s;
+    }
+
+.select{
+        background-color: transparent;
+        border:0;
+}
+.select option{
+        color:#666;
+        height:28px;
+        line-height:28px;
+        padding:4px 6px;
+        font-size:20px;
+        border-radius:4px;
+        cursor:pointer;
+        outline:none;
+}
+.character{
+        font-style: italic;
+        border: 0;
+        font-size: 36px;
+}
+.character_login{
+        font-style: italic;
+        border: 0;
+        font-size: 30px;
+}
+.character_time{
+        width: 15px;
+        border: 0;
+        display: flex;
+        font-size: 20px;
+        flex-wrap: wrap;
+}
+.number{
+        font-style: italic;
+        border: 0;
+}

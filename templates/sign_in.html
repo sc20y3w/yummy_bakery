@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{##Inheriting the base template.#}
+
+{% block title %}
+
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<form method="post" action="{{ url_for('baker.baker_sign_in') }}">
+    <div class="login" style="left: -40px;position: relative;">
+        <h2>Sign in</h2>
+        <div class="login_form" style="left:10px;top:5px;position:relative; z-index:999; ">
+            <span>Username:</span>
+            <input type="text" name="username" placeholder="Please enter your username">
+            <br>
+            <span>Password:</span>
+            <input type="password" name="password" placeholder="Please enter your password">
+        </div>
+        {% for message in get_flashed_messages() %}
+                <div class="text-danger">{{ message }}</div>
+        {% endfor %}
+        <div class="btn" style="top:35px;position: relative; z-index:999; ">
+            <button class="login_btn">LOGIN</button>
+        </div>
+    </div>
+</form>
+{% endblock %}
+

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{##Inheriting the base template.#}
+
+{% block title %}
+
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<form method="post" action="{{ url_for('order.order_edit',id=id) }}" style="background-color: #155724">
+    <div class="login" style="left: -40px;position: relative;">
+        <h2>Edit</h2>
+        <div class="login_form" style="left:10px;top:-40px;position:relative; z-index:999; ">
+            <span>Bread:</span>
+            <input type="text" name="bread_name" placeholder="Please the bread name" value={{ order.bread_name }}>
+            <br>
+            <span>Client:</span>
+            <input type="text" name="client_id" placeholder="Please enter your client" value={{ order.client_id }}>
+            <br>
+            <span>Finish:</span>
+            <input type="text" name="finish" placeholder="Please enter whether it is finished" value={{ order.finish }}>
+        </div>
+        <div style="position: relative; top: -60px;">
+            {% for message in get_flashed_messages() %}
+                    <div class="text-danger text-sm-center">{{ message }}</div>
+            {% endfor %}
+        </div>
+        <div class="btn" style="top:-60px;position: relative; z-index:999; ">
+            <button class="login_btn" type="submit">EDIT</button>
+        </div>
+    </div>
+</form>
+{% endblock %}
+

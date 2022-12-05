@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{##Inheriting the base template.#}
+
+{% block title %}
+
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<form method="post" action="{{ url_for('order.type_add') }}">
+    <div class="login" style="left: -40px;position: relative;">
+        <h2>Add</h2>
+        <div class="sign_form_b" style="left:10px;top:70px;position:relative; z-index:999;">
+            <span>Type:</span>
+            <input type="text" name="type_name" placeholder="Please the type name">
+        </div>
+        <div style="position: relative; top: -60px;">
+            {% for message in get_flashed_messages() %}
+                    <div class="text-danger text-sm-center">{{ message }}</div>
+            {% endfor %}
+        </div>
+        <div class="btn" style="top:140px;position: relative; z-index:999; ">
+            <button class="login_btn">ADD</button>
+        </div>
+    </div>
+</form>
+{% endblock %}
